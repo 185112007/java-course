@@ -1,4 +1,4 @@
-package edu.javacourse;
+package edu.javacourse.sample.gui1;
 
 import javax.swing.*;
 

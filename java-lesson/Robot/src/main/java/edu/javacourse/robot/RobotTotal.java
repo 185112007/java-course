@@ -5,6 +5,9 @@ public class RobotTotal extends Robot{
     // Вводим поле дляхранения пройденной дистанции
     private double totalDistance = 0;
 
+    public RobotTotal(){
+        super(0, 0);
+    }
     public RobotTotal(double x, double y) {
         super(x, y);
     }
