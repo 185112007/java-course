@@ -1,0 +1,9 @@
+# IDEA files
+*.idea
+
+# Output folder
+target
+*.class
+
+# Netbeans files
+*.iml
