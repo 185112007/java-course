@@ -8,6 +8,8 @@ public class SaveStudentOrder {
         StudentOrder so
                 = new StudentOrder();
 
+        Adult adult = new Adult();
+
         long ans = saveStudentOrder(so);
         System.out.println(ans);
     }

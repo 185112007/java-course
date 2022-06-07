@@ -16,6 +16,7 @@ public class RobotTotal extends Robot{
     void forward(int distance) {
         super.forward(distance);
         totalDistance += distance;
+        System.out.println("RobotTotal");
     }
 
     public double getTotalDistance() {

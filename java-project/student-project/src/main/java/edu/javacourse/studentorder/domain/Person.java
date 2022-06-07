@@ -10,6 +10,10 @@ public class Person {
 
     private Address address;
 
+    public Person(){
+        System.out.println("Person is created");
+    }
+
     public String getSurName() {
         return surName;
     }

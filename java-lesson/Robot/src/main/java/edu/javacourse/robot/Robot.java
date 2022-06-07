@@ -22,7 +22,7 @@ public class Robot {
     
     // Печать координат робота
     void printCoordinates(){
-        System.err.println(x + "," + y);
+        System.out.println(x + "," + y);
     }
     
     public double getX(){
