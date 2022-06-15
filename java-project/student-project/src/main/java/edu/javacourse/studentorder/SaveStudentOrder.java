@@ -8,8 +8,6 @@ public class SaveStudentOrder {
         StudentOrder so
                 = new StudentOrder();
 
-        Adult adult = new Adult();
-
         long ans = saveStudentOrder(so);
         System.out.println(ans);
     }
@@ -20,12 +18,12 @@ public class SaveStudentOrder {
         return answer;
     }
 
-    static StudentOrder buildStudentOrder(){
+    static StudentOrder buildStudentOrder(long id){
         StudentOrder so = new StudentOrder();
-        Adult husband = new Adult();
+        Adult husband = new Adult("Vasilyev", "Andrey", "Petrovic",null);
         husband.setGivenName("Andrey");
         so.setHusband(husband);
-
+        so.setStudentOrderId(id);
         return so;
     }
 }

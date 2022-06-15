@@ -11,8 +11,12 @@ public class Adult extends Person{
     private String studentId;
 
     public Adult(){
-        System.out.println("Adult is created");
     }
+
+    public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
+        super(surName, givenName, patronymic, dateOfBirth);
+    }
+
 
     public String getPassportSerialNumber() {
         return passportSerialNumber;

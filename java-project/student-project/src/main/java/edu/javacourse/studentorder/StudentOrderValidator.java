@@ -6,9 +6,6 @@ import edu.javacourse.studentorder.validator.*;
 
 public class StudentOrderValidator {
 
-    /*
-    Properties
-     */
     private CityRegisterValidator cityRegisterValidator;
     private WeddingValidator weddingValidator;
     private ChildrenValidator childrenValidator;
@@ -30,28 +27,31 @@ public class StudentOrderValidator {
 
     public void checkAll(){
 
-        while (true) {
-            StudentOrder so = readStudentOrder();
-            if (so == null){
-                break;
-            }
-
-            AnswerCityRegister cityAnswer = checkCityRegister(so);
-            if (!cityAnswer.success){
-//                continue;
-                break;
-            }
-
-            AnswerWedding weddingAns = checkWedding(so);
-            AnswerChildren childrenAns = checkChildren(so);
-            AnswerStudent studentAns = checkStudent(so);
-
-            sendMail(so);
+        StudentOrder[] soArray = readStudentOrders();
+        for (StudentOrder so : soArray){
+            System.out.println();
+            checkOneOrder(so);
         }
     }
 
-    public StudentOrder readStudentOrder(){
-        return new StudentOrder();
+    public void checkOneOrder(StudentOrder so){
+        AnswerCityRegister cityAnswer = checkCityRegister(so);
+        AnswerWedding weddingAns = checkWedding(so);
+        AnswerChildren childrenAns = checkChildren(so);
+        AnswerStudent studentAns = checkStudent(so);
+
+        sendMail(so);
+    }
+
+    public StudentOrder[] readStudentOrders(){
+        StudentOrder[] soArray = new StudentOrder[3];
+
+        for (int i=0; i<soArray.length; i++){
+            StudentOrder so = SaveStudentOrder.buildStudentOrder(i);
+            soArray[i] = so;
+        }
+
+        return soArray;
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so){
