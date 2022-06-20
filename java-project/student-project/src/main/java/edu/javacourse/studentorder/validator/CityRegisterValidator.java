@@ -1,7 +1,11 @@
 package edu.javacourse.studentorder.validator;
 
-import edu.javacourse.studentorder.domain.AnswerCityRegister;
+import edu.javacourse.studentorder.domain.register.AnswerCityRegister;
+import edu.javacourse.studentorder.domain.register.CityRegisterCheckerResponse;
 import edu.javacourse.studentorder.domain.StudentOrder;
+import edu.javacourse.studentorder.exception.CityRegisterException;
+import edu.javacourse.studentorder.validator.register.CityRegisterChecker;
+import edu.javacourse.studentorder.validator.register.FakeCityRegisterChecker;
 
 public class CityRegisterValidator {
     private String hostName;
@@ -9,10 +13,22 @@ public class CityRegisterValidator {
     private String login;
     private String password;
 
+    private CityRegisterChecker personChecker;
+
+    public CityRegisterValidator(){
+        personChecker = new FakeCityRegisterChecker();
+    }
+
     public AnswerCityRegister checkCityRegister(StudentOrder so){
-        System.out.println("City register is running: " + hostName + ", " + port + ", " + login + ", " + password);
+        try {
+            CityRegisterCheckerResponse hans = personChecker.checkPerson(so.getHusband());
+            CityRegisterCheckerResponse wans = personChecker.checkPerson(so.getWife());
+            CityRegisterCheckerResponse cans = personChecker.checkPerson(so.getChild());
+        } catch (CityRegisterException ex) {
+            ex.printStackTrace(System.out);
+        }
+
         AnswerCityRegister ans = new AnswerCityRegister();
-        ans.success = false;
         return ans;
     }
 }
