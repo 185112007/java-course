@@ -8,6 +8,9 @@ import edu.javacourse.studentorder.domain.wedding.AnswerWedding;
 import edu.javacourse.studentorder.mail.MailSender;
 import edu.javacourse.studentorder.validator.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StudentOrderValidator {
 
     private CityRegisterValidator cityRegisterValidator;
@@ -31,8 +34,8 @@ public class StudentOrderValidator {
 
     public void checkAll(){
 
-        StudentOrder[] soArray = readStudentOrders();
-        for (StudentOrder so : soArray){
+        List<StudentOrder> studentOrders = readStudentOrders();
+        for (StudentOrder so : studentOrders){
             System.out.println();
             checkOneOrder(so);
         }
@@ -47,15 +50,15 @@ public class StudentOrderValidator {
         sendMail(so);
     }
 
-    public StudentOrder[] readStudentOrders(){
-        StudentOrder[] soArray = new StudentOrder[3];
+    public List<StudentOrder> readStudentOrders(){
+        List<StudentOrder> studentOrders = new LinkedList<>();
 
-        for (int i=0; i<soArray.length; i++){
+        for (int i=0; i<5; i++){
             StudentOrder so = SaveStudentOrder.buildStudentOrder(i);
-            soArray[i] = so;
+            studentOrders.add(so);
         }
 
-        return soArray;
+        return studentOrders;
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so){

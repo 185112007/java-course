@@ -3,7 +3,7 @@ package edu.javacourse.studentorder.domain.register;
 /**
  * @author gafur
  */
-public class CityRegisterCheckerResponse {
+public class CityRegisterResponse {
     private boolean existing;
     private Boolean temporal;
 
