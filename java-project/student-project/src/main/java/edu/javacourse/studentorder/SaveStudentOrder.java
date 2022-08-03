@@ -29,10 +29,15 @@ public class SaveStudentOrder {
 
 //
 
-        StudentOrder so = buildStudentOrder(10);
+//        StudentOrder so = buildStudentOrder(10);
         StudentOrderDao dao = new StudentDaoImpl();
-        Long id = dao.saveStudentOrder(so);
-        System.out.println(id);
+//        Long id = dao.saveStudentOrder(so);
+//        System.out.println(id);
+
+        List<StudentOrder> studentOrders = dao.getStudentOrders();
+        for (StudentOrder studentOrder: studentOrders){
+            System.out.println(studentOrder.getStudentOrderId());
+        }
     }
 
     static long saveStudentOrder(StudentOrder studentOrder){
@@ -50,7 +55,7 @@ public class SaveStudentOrder {
         RegisterOffice ro = new RegisterOffice(1L, "", "");
         so.setMarriageOffice(ro);
 
-        Street street = new Street(1, "First street");
+        Street street = new Street(1L, "First street");
 
         Address address = new Address("195000", street, "12", "", "142");
 
@@ -65,8 +70,7 @@ public class SaveStudentOrder {
         husband.setStudentId("" + (100000 + id));
         husband.setAddress(address);
 
-        University hUniversity = new University(1L, "University 1");
-        husband.setUniversity(hUniversity);
+        husband.setUniversity(new University(2L, ""));
 
         // Жена
         Adult wife = new Adult("Петрова", "Вероника", "Алекссевна", LocalDate.of(1998, 3, 12));
@@ -79,8 +83,7 @@ public class SaveStudentOrder {
         wife.setStudentId("" + (200000 + id));
         wife.setAddress(address);
 
-        University wUniversity = new University(2L, "University 2");
-        wife.setUniversity(wUniversity);
+        wife.setUniversity(new University(1L, ""));
 
         // Ребенок
         Child child1 = new Child("Петрова", "Ирина", "Викторовна", LocalDate.of(2018, 6, 29));

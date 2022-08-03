@@ -49,7 +49,7 @@ public class DictionaryDaoImpl implements DictionaryDao{
             stmt.setString(1, "%" + pattern + "%");
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
-                Street str = new Street(resultSet.getInt("street_code"), resultSet.getString("street_name"));
+                Street str = new Street(resultSet.getLong("street_code"), resultSet.getString("street_name"));
                 result.add(str);
             }
         }catch (SQLException ex){

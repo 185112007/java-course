@@ -1,22 +1,22 @@
 package edu.javacourse.studentorder.domain;
 
 public class Street {
-    private int streetCode;
+    private Long streetCode;
     private String streetName;
 
     public Street() {
     }
 
-    public Street(int streetCode, String streetName) {
+    public Street(Long streetCode, String streetName) {
         this.streetCode = streetCode;
         this.streetName = streetName;
     }
 
-    public int getStreetCode() {
+    public Long getStreetCode() {
         return streetCode;
     }
 
-    public void setStreetCode(int streetCode) {
+    public void setStreetCode(Long streetCode) {
         this.streetCode = streetCode;
     }
 
