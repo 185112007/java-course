@@ -36,4 +36,13 @@ public class Child extends Person {
     public void setIssueDepartment(RegisterOffice issueDepartment) {
         this.issueDepartment = issueDepartment;
     }
+
+    @Override
+    public String toString() {
+        return "Child{" +
+                "certificateNumber='" + certificateNumber + '\'' +
+                ", issueDate=" + issueDate +
+                ", issueDepartment=" + issueDepartment +
+                "} " + super.toString();
+    }
 }

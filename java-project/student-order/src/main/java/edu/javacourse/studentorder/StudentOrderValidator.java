@@ -1,6 +1,6 @@
 package edu.javacourse.studentorder;
 
-import edu.javacourse.studentorder.dao.StudentDaoImpl;
+import edu.javacourse.studentorder.dao.StudentOrderDaoImpl;
 import edu.javacourse.studentorder.domain.*;
 import edu.javacourse.studentorder.domain.children.AnswerChildren;
 import edu.javacourse.studentorder.domain.register.AnswerCityRegister;
@@ -10,7 +10,6 @@ import edu.javacourse.studentorder.exception.DaoException;
 import edu.javacourse.studentorder.mail.MailSender;
 import edu.javacourse.studentorder.validator.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class StudentOrderValidator {
@@ -56,7 +55,7 @@ public class StudentOrderValidator {
     }
 
     public List<StudentOrder> readStudentOrders() throws DaoException {
-        return new StudentDaoImpl().getStudentOrders();
+        return new StudentOrderDaoImpl().getStudentOrders();
     }
 
     public AnswerCityRegister checkCityRegister(StudentOrder so){

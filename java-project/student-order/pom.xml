@@ -9,10 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-<!--        <maven.compiler.source>11</maven.compiler.source>-->
-<!--        <maven.compiler.target>11</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <junit.version>4.13.2</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
+        <log4j.version>2.18.0</log4j.version>
     </properties>
 
     <dependencies>
@@ -28,17 +29,28 @@
             <version>${slf4j.version}</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>org.slf4j</groupId>-->
+<!--            <artifactId>slf4j-simple</artifactId>-->
+<!--            <version>${slf4j.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-reload4j</artifactId>
             <version>${slf4j.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -49,8 +61,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

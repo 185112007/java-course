@@ -19,7 +19,7 @@ public class StudentDaoImplTest {
     @Test
     public void saveStudentOrder() throws DaoException {
         StudentOrder so = buildStudentOrder(10);
-        Long id = new StudentDaoImpl().saveStudentOrder(so);
+        Long id = new StudentOrderDaoImpl().saveStudentOrder(so);
     }
 
     @Test(expected = DaoException.class)
@@ -27,13 +27,13 @@ public class StudentDaoImplTest {
 
         StudentOrder so = buildStudentOrder(10);
         so.getHusband().setSurName(null);
-        Long id = new StudentDaoImpl().saveStudentOrder(so);
+        Long id = new StudentOrderDaoImpl().saveStudentOrder(so);
         Assert.fail("Should be an error");
     }
 
     @Test
     public void getStudentOrders() throws DaoException {
-        List<StudentOrder> studentOrders = new StudentDaoImpl().getStudentOrders();
+        List<StudentOrder> studentOrders = new StudentOrderDaoImpl().getStudentOrders();
 
     }
 
