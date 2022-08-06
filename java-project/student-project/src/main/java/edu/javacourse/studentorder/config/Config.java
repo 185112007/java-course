@@ -9,6 +9,8 @@ public class Config {
     public static final String DB_USER = "db.user";
     public static final String DB_PASSWORD = "db.password";
 
+    public static final String DB_LIMIT = "db.limit";
+
     private static Properties properties = new Properties();
 
     public static String getProperty(String name){
