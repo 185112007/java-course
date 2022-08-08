@@ -38,3 +38,13 @@
 
     git checkout <another_branch>
     git branch -D <branch_name_for_delete>
+
+## Pull changes from master branch
+
+    git fetch -v
+    git stash
+    git checkut <main_branch>
+    git pull
+    git checkout <your_branch>
+    git stash pop
+    git merge <main_branch>
