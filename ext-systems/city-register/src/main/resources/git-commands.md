@@ -48,3 +48,4 @@
     git checkout <your_branch>
     git stash pop
     git merge <main_branch>
+    git push
