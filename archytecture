@@ -1,0 +1,15 @@
+1. Web
+2. Business
+3. Persistence
+
+1. Frontend
+    - Web
+2. Backend
+    - Business
+    - Persistence
+
+Request - Person, Address
+Response - Yes/No, is Temporal
+
+1. Logical Model - dto
+2. Physical Model - model
